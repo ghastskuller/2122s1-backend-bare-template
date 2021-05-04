@@ -978,10 +978,10 @@
     });
     ```
 
-8. Run this test to see that it is successful.
+8. Run this test to see whether it is successful.
 
     ```
-    node test .\tests\integration\router.test.js
+    node .\tests\integration\router.test.js
     ```
 
 9. Before we can run this, we need to run the application and run the test runner. Do that by adding the following:
