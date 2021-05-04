@@ -974,7 +974,7 @@
     const testPort = 3456;
     const url = `http://localhost:${testPort}`;
     it('Should respond with status = 404', function () {
-        fetch(`${url}/fsldkjflsdjflksd`).then((response) => response.status == 404);
+        return fetch(`${url}/fsldkjflsdjflksd`).then((response) => response.status == 404);
     });
     ```
 
