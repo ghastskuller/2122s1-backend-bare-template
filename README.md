@@ -337,8 +337,8 @@
     First served 1
     Second served 2
     [
-        { "id": 1, "served": false }
-        { "id": 2, "served": false }
+        { "id": 1, "served": true }
+        { "id": 2, "served": true }
         { "id": 3, "served": false }
     ]
     ```
@@ -485,7 +485,7 @@
     > Which API is this for? enqueue? or dequeue?
 
 39. Following the above example, create another middleware for the other API. (Hint: What's the Request Method? Which manager's method do we call? How about the response status?)
-40. Back in `routes.js` add the following lines:
+40. Back in `router.js` add the following lines:
 
     ```js
     // after: const { app } = require('./app');
@@ -952,6 +952,7 @@
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
         database: process.env.DB_DATABASE,
+        connectionString: process.env.DB_TEST_CONNECTION_STRING,
     });
     database.getPool = function () {
         return client;
@@ -973,14 +974,14 @@
     const testPort = 3456;
     const url = `http://localhost:${testPort}`;
     it('Should respond with status = 404', function () {
-        fetch(`${url}/fsldkjflsdjflksd`).then((response) => response.status == 404);
+        return fetch(`${url}/fsldkjflsdjflksd`).then((response) => response.status == 404);
     });
     ```
 
-8. Run this test to see that it is successful.
+8. Run this test to see whether it is successful.
 
     ```
-    node test .\tests\integration\router.test.js
+    node .\tests\integration\router.test.js
     ```
 
 9. Before we can run this, we need to run the application and run the test runner. Do that by adding the following:
@@ -1032,10 +1033,10 @@
     });
     ```
 
-12. Run this test to see that it is successful.
+12. Run this test to see whether it is successful.
 
     ```
-    node test .\tests\integration\router.test.js
+    node .\tests\integration\router.test.js
     ```
 
 13. One more test for a double confirmation.
